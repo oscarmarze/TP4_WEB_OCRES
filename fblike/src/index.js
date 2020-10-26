@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
   
  let profils=[
    {
@@ -76,11 +77,11 @@ class Comptes extends React.Component{
 
   class Profil extends React.Component {
   
-    renderComptes(i){
-      return<Comptes value={choix}/>;
+    renderComptes(){
+      return<Comptes/>;
     }
     renderStyle(i){
-      return<Style value={couleur}/>;
+      return<Style/>;
     }
     
   
@@ -89,8 +90,19 @@ class Comptes extends React.Component{
         <div>
          <p> TEST </p>
          <div> 
+           <div>
            {this.renderComptes()}
+           </div>
+           <div>
+            <div id="photo">
+            <p> Ici notre image</p>
+            </div>
+            
+
+           </div>
+           <div>
           {this.renderStyle()}
+          </div>
          </div>
         </div>
         
