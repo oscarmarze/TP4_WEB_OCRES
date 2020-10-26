@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
   
  let profils=[
    {
@@ -11,7 +10,6 @@ import './index.css';
      DateN: '07/01/1998',
      Photo:'',
      Bio:'Joueur du Stade Malherbes de Caen',
-     id:1
   },
 
   {
@@ -20,7 +18,6 @@ import './index.css';
     DateN: '25/03/1994',
     Photo:'',
     Bio:'Joueur de Nottingham Forest, ancien joueur du Stade Malherbes',
-    id:2
 
  },
 
@@ -30,9 +27,8 @@ import './index.css';
   DateN: '17/05/1988',
   Photo:'',
   Bio:'Ancien joueur du SMC et actuel défenseur central du Stade Rennais',
-  id:3
 },]
-let choix=0;
+let choix=1;
 let couleur= 'white';
 
 class Comptes extends React.Component{
@@ -57,33 +53,30 @@ class Comptes extends React.Component{
    render(){
      return(
        <div id="boutons">
-       <button className="comptes" onClick={()=>this.switchprofil1()}>
+       <button class="comptes" onClick={()=>this.switchprofil1()}>
          Deminguet
        </button>
-       <button className="comptes" onClick={()=>this.switchprofil2()}>
+       <button class="comptes" onClick={()=>this.switchprofil2()}>
          Samba
        </button>
-       <button className="comptes" onClick={()=>this.switchprofil3()}>
-         Da silva
+       <button class="comptes" onClick={()=>this.switchprofil3()}>
+         Da Silva
        </button>
 
        <button onClick={()=>alert(choix)}>
        </button>
+       <Info id={choix}/>
        </div>
 
      )
    }
+   
  }
 
-  class Profil extends React.Component {
-  
-    renderComptes(){
-      return<Comptes/>;
-    }
-    renderStyle(i){
-      return<Style/>;
-    }
-    
+  class Info extends React.Component {
+  constructor(props){
+    super(props);
+  }
   
     render() {
       return (
@@ -91,18 +84,25 @@ class Comptes extends React.Component{
          <p> TEST </p>
          <div> 
            <div>
-           {this.renderComptes()}
-           </div>
-           <div>
             <div id="photo">
             <p> Ici notre image</p>
+            </div>
+            <div>
+              <h2>profils[this.props.id].Prenom</h2>
+            </div>
+            <div>
+              <h2>profils[this.props.id].Nom</h2>
+            </div>
+            <div>
+              <h2>profils[this.props.id].DateN</h2>
+            </div>
+            <div>
+              <h2>profils[this.props.id].Bio</h2>
             </div>
             
 
            </div>
-           <div>
-          {this.renderStyle()}
-          </div>
+           
          </div>
         </div>
         
@@ -130,6 +130,7 @@ class Comptes extends React.Component{
       return(
         <button className="style" onClick={()=>alert(couleur)}> Style
          </button>
+         
       )
     }
   }
@@ -139,7 +140,7 @@ class Comptes extends React.Component{
   // ========================================
   
   ReactDOM.render(
-    <Profil />,
+    <Comptes />,
     document.getElementById('root')
   );
   
