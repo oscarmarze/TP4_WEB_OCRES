@@ -8,16 +8,16 @@ import './index.css';
      Nom: 'Deminguet',
      Prenom: 'Jessy',
      DateN: '07/01/1998',
-     Photo:'',
-     Bio:'Joueur du Stade Malherbes de Caen',
+     Photo:'deminguet.jpg',
+     Bio:'Joueur du Stade Malherbes de Caen.',
   },
 
   {
     Nom: 'Samba',
     Prenom: 'Brice',
     DateN: '25/03/1994',
-    Photo:'',
-    Bio:'Joueur de Nottingham Forest, ancien joueur du Stade Malherbes',
+    Photo:'Samba.jpg',
+    Bio:'Joueur de Nottingham Forest, ancien joueur du Stade Malherbe.',
 
  },
 
@@ -25,10 +25,10 @@ import './index.css';
   Nom: 'Da Silva',
   Prenom: 'Damien',
   DateN: '17/05/1988',
-  Photo:'',
-  Bio:'Ancien joueur du SMC et actuel défenseur central du Stade Rennais',
+  Photo:'DaSilva.png',
+  Bio:'Ancien joueur du SMC et actuel défenseur central du Stade Rennais.',
 },]
-let choix=1;
+let choix=0;
 let couleur= 'white';
 
 class Comptes extends React.Component{
@@ -39,16 +39,16 @@ class Comptes extends React.Component{
     };
   }
     switchprofil1() {
-      choix = 1;
-      this.setState({choix:1});
+      choix = 0;
+      this.setState({choix:0});
    }
    switchprofil2() {
-    choix = 2;
-    this.setState({choix:2});
+    choix = 1;
+    this.setState({choix:1});
  }
  switchprofil3() {
-  choix = 3;
-  this.setState({choix:3});
+  choix = 2;
+  this.setState({choix:2});
 }
    render(){
      return(
@@ -62,9 +62,6 @@ class Comptes extends React.Component{
        <button class="comptes" onClick={()=>this.switchprofil3()}>
          Da Silva
        </button>
-
-       <button onClick={()=>alert(choix)}>
-       </button>
        <Info id={choix}/>
        </div>
 
@@ -74,30 +71,26 @@ class Comptes extends React.Component{
  }
 
   class Info extends React.Component {
-  constructor(props){
-    super(props);
-  }
   
     render() {
       return (
         <div>
-         <p> TEST </p>
          <div> 
            <div>
             <div id="photo">
-            <p> Ici notre image</p>
+            <img src={profils[this.props.id].Photo}></img>
             </div>
             <div>
-              <h2>profils[this.props.id].Prenom</h2>
+              <h2>Prénom: {profils[this.props.id].Prenom}</h2>
             </div>
             <div>
-              <h2>profils[this.props.id].Nom</h2>
+              <h2>Nom: {profils[this.props.id].Nom}</h2>
             </div>
             <div>
-              <h2>profils[this.props.id].DateN</h2>
+              <h2>Date de Naissance: {profils[this.props.id].DateN}</h2>
             </div>
             <div>
-              <h2>profils[this.props.id].Bio</h2>
+              <h2>Bio: {profils[this.props.id].Bio}</h2>
             </div>
             
 
