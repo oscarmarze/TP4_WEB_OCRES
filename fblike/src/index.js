@@ -10,7 +10,7 @@ import './index.css';
      DateN: '07/01/1998',
      Photo:'',
      Bio:'Joueur du Stade Malherbes de Caen',
-     id:'1'
+     id:1
   },
 
   {
@@ -19,7 +19,7 @@ import './index.css';
     DateN: '25/03/1994',
     Photo:'',
     Bio:'Joueur de Nottingham Forest, ancien joueur du Stade Malherbes',
-    id:'2'
+    id:2
 
  },
 
@@ -29,7 +29,7 @@ import './index.css';
   DateN: '17/05/1988',
   Photo:'',
   Bio:'Ancien joueur du SMC et actuel défenseur central du Stade Rennais',
-  id:'3'
+  id:3
 },]
 let choix=0;
 
@@ -37,17 +37,32 @@ class Comptes extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      choix :1
+      choix :null
     };
   }
-    switchprofile() {
-      this.setState({choix:profils.id});
+    switchprofil1() {
+      choix = 1;
+      this.setState({choix:1});
    }
+   switchprofil2() {
+    choix = 2;
+    this.setState({choix:2});
+ }
+ switchprofil3() {
+  choix = 3;
+  this.setState({choix:3});
+}
    render(){
      return(
        <div>
-       <button className="comptes" onClick={()=>this.switchprofile()}>
-         {this.props.value}
+       <button className="comptes" onClick={()=>this.switchprofil1()}>
+         Deminguet
+       </button>
+       <button className="comptes" onClick={()=>this.switchprofil2()}>
+         Samba
+       </button>
+       <button className="comptes" onClick={()=>this.switchprofil3()}>
+         Da silva
        </button>
 
        <button onClick={()=>alert(choix)}>
