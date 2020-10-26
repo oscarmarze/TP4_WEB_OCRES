@@ -3,6 +3,61 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
   
+ let profils=[
+   {
+     Nom: 'Deminguet',
+     Prenom: 'Jessy',
+     DateN: '07/01/1998',
+     Photo:'',
+     Bio:'Joueur du Stade Malherbes de Caen',
+     id:'1'
+  },
+
+  {
+    Nom: 'Samba',
+    Prenom: 'Brice',
+    DateN: '25/03/1994',
+    Photo:'',
+    Bio:'Joueur de Nottingham Forest, ancien joueur du Stade Malherbes',
+    id:'2'
+
+ },
+
+ {
+  Nom: 'Da Silva',
+  Prenom: 'Damien',
+  DateN: '17/05/1988',
+  Photo:'',
+  Bio:'Ancien joueur du SMC et actuel défenseur central du Stade Rennais',
+  id:'3'
+},]
+let choix=0;
+
+class Comptes extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      choix :1
+    };
+  }
+    switchprofile() {
+      this.setState({choix:profils.id});
+   }
+   render(){
+     return(
+       <div>
+       <button className="comptes" onClick={()=>this.switchprofile()}>
+         {this.props.value}
+       </button>
+
+       <button onClick={()=>alert(choix)}>
+
+       </button>
+       </div>
+     )
+   }
+ }
+
   class Profil extends React.Component {
   
     renderComptes(i){
@@ -19,78 +74,18 @@ import './index.css';
            {this.renderComptes(1)}
            {this.renderComptes(2)}
          </div>
-         <Info/>
-         <Bio/>
         </div>
         
       );
     }
   }
 
-  class Info extends React.Component {
+  class Bio extends React.Component {
   
-    render() {
-      return (
-        <div>
-          <Photo/>
-          <Nom/>
-          <Prenom/>
-          <DateN/>
-          <Style/>
-         
-        </div>
-        
-      );
-    }
   }
 
-   class Comptes extends React.Component{
-     render(){
-       return(
-         <button className="comptes" onClick={()=>alert('switchprofile')}>
-           {this.props.value}
-         </button>
-       )
-     }
-   }
-   class Bio extends React.Component{
-     render(){
-       return(
-           <p> Ici c'est la bio</p>
-       )
-     }
-   }
-   class Photo extends React.Component{
-    render(){
-      return(
-        <p> Ici c'est la photo</p>
-      )
-    }
-  }
 
-  class Nom extends React.Component{
-    render(){
-      return(
-        <p> Ici c'est le nom</p>
-      )
-    }
-  }
-
-  class Prenom extends React.Component{
-    render(){
-      return(
-        <p> Ici c'est le prénom</p>
-      )
-    }
-  }
-
-  class DateN extends React.Component{
-    render(){
-      return(
-        <p> Ici c'est la date de naissance</p>
-      )
-    }
-  }
+   
   class Style extends React.Component{
     render(){
       return(
@@ -100,20 +95,12 @@ import './index.css';
     }
   }
   
-  class Page extends React.Component {
-    render() {
-      return (
-        <div className="profil">
-            <Profil />
-        </div>
-      );
-    }
-  }
+
   
   // ========================================
   
   ReactDOM.render(
-    <Page />,
+    <Profil />,
     document.getElementById('root')
   );
   
