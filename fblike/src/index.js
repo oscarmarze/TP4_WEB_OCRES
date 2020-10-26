@@ -32,6 +32,7 @@ import './index.css';
   id:3
 },]
 let choix=0;
+let couleur= 'white';
 
 class Comptes extends React.Component{
   constructor(props) {
@@ -54,7 +55,7 @@ class Comptes extends React.Component{
 }
    render(){
      return(
-       <div>
+       <div id="boutons">
        <button className="comptes" onClick={()=>this.switchprofil1()}>
          Deminguet
        </button>
@@ -66,9 +67,9 @@ class Comptes extends React.Component{
        </button>
 
        <button onClick={()=>alert(choix)}>
-
        </button>
        </div>
+
      )
    }
  }
@@ -76,7 +77,10 @@ class Comptes extends React.Component{
   class Profil extends React.Component {
   
     renderComptes(i){
-      return<Comptes value={i}/>;
+      return<Comptes value={choix}/>;
+    }
+    renderStyle(i){
+      return<Style value={couleur}/>;
     }
     
   
@@ -85,9 +89,8 @@ class Comptes extends React.Component{
         <div>
          <p> TEST </p>
          <div> 
-           {this.renderComptes(0)}
-           {this.renderComptes(1)}
-           {this.renderComptes(2)}
+           {this.renderComptes()}
+          {this.renderStyle()}
          </div>
         </div>
         
@@ -102,9 +105,18 @@ class Comptes extends React.Component{
 
    
   class Style extends React.Component{
+    constructor(props) {
+      super(props);
+      this.state = {
+        couleur :null
+      }
+    }
+    switchcolor(){
+      this.setState({couleur : "red"});
+    }
     render(){
       return(
-        <button className="style" onClick={()=>alert('changestyle')}> Style
+        <button className="style" onClick={()=>alert(couleur)}> Style
          </button>
       )
     }
