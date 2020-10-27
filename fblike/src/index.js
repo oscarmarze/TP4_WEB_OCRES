@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
   
  let profils=[
@@ -52,17 +53,31 @@ class Comptes extends React.Component{
 }
    render(){
      return(
-       <div id="boutons">
-       <button class="comptes" onClick={()=>this.switchprofil1()}>
-         Deminguet
-       </button>
-       <button class="comptes" onClick={()=>this.switchprofil2()}>
-         Samba
-       </button>
-       <button class="comptes" onClick={()=>this.switchprofil3()}>
-         Da Silva
-       </button>
+       <div id="main">
+         
+       <div id="boutons" className="container">
+    
+          <div className="row">
+            <div className="col-4">
+            <button class="comptes" onClick={()=>this.switchprofil1()}>
+            Deminguet
+          </button>
+            </div>
+          <div className="col-4">
+          <button class="comptes" onClick={()=>this.switchprofil2()}>
+            Samba
+          </button>
+          </div>
+          <div className="col-4">
+          <button class="comptes" onClick={()=>this.switchprofil3()}>
+            Da Silva
+          </button>
+          </div>
+        </div>
+       </div>
+      
        <Info id={choix}/>
+       <Style/>
        </div>
 
      )
@@ -74,39 +89,34 @@ class Comptes extends React.Component{
   
     render() {
       return (
-        <div>
-         <div> 
-           <div>
+        
+         
+           <div id="infoprofil">
+             <h1>Profil</h1>
             <div id="photo">
             <img src={profils[this.props.id].Photo}></img>
             </div>
             <div>
-              <h2>Prénom: {profils[this.props.id].Prenom}</h2>
+              <h4>Prénom: {profils[this.props.id].Prenom}</h4>
             </div>
             <div>
-              <h2>Nom: {profils[this.props.id].Nom}</h2>
+              <h4>Nom: {profils[this.props.id].Nom}</h4>
             </div>
             <div>
-              <h2>Date de Naissance: {profils[this.props.id].DateN}</h2>
+              <h4>Date de Naissance: {profils[this.props.id].DateN}</h4>
             </div>
             <div>
-              <h2>Bio: {profils[this.props.id].Bio}</h2>
+              <h4>Bio: {profils[this.props.id].Bio}</h4>
             </div>
             
 
            </div>
            
-         </div>
-        </div>
+      
         
       );
     }
   }
-
-  class Bio extends React.Component {
-  
-  }
-
 
    
   class Style extends React.Component{

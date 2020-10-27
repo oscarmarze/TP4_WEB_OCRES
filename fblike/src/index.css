@@ -6,6 +6,31 @@ img{
   height: 20em;
   width: 20em;
 }
+#infoprofil{
+  text-align: center;
+  margin-top: 2%;
+ background-color:grey;
+}
+#boutons{
+  background-color: blue;
+  text-align: center;
+ 
+  
+}
+#main{
+  background-color: blueviolet;
+  
+}
+.col-sm-4{
+  background-color: red;
+}
+.row{
+  background-color: yellow;
+}
+.style{
+  display: flex;
+  justify-content: end;
+}
 
 ol, ul {
   padding-left: 30px;
