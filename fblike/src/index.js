@@ -98,12 +98,12 @@ class Comptes extends React.Component{
       if( couleur == 'red'){
         couleur = 'blue';
         this.setState({couleur: 'blue'});
-        document.getElementById("infoprofil").style.backgroundColor = this.state.couleur;
+        document.getElementById("infoprofil").style.backgroundColor = 'blue';
       }
       else{
         couleur ='red';
         this.setState({couleur:'red'});
-        document.getElementById("infoprofil").style.backgroundColor = this.state.couleur;
+        document.getElementById("infoprofil").style.backgroundColor = 'red';
       }
      
       
@@ -143,10 +143,6 @@ class Comptes extends React.Component{
       );
     }
   }
-
-   
-  
-
   
   // ========================================
   
