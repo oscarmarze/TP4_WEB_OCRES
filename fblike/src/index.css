@@ -9,23 +9,15 @@ img{
 #infoprofil{
   text-align: center;
   margin-top: 2%;
- background-color:grey;
+ background-color: red;
+ margin-left: 5%;
+ margin-right: 5%;
 }
 #boutons{
-  background-color: blue;
+  background-color:#051893;
   text-align: center;
  
   
-}
-#main{
-  background-color: blueviolet;
-  
-}
-.col-sm-4{
-  background-color: red;
-}
-.row{
-  background-color: yellow;
 }
 .style{
   display: flex;

@@ -30,7 +30,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   Bio:'Ancien joueur du SMC et actuel défenseur central du Stade Rennais.',
 },]
 let choix=0;
-let couleur= 'white';
+let couleur='red';
+
 
 class Comptes extends React.Component{
   constructor(props) {
@@ -77,7 +78,7 @@ class Comptes extends React.Component{
        </div>
       
        <Info id={choix}/>
-       <Style/>
+       
        </div>
 
      )
@@ -86,12 +87,35 @@ class Comptes extends React.Component{
  }
 
   class Info extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        couleur : 'red'
+      }
+      
+    }
+    switchcolor(){
+      if( couleur == 'red'){
+        couleur = 'blue';
+        this.setState({couleur: 'blue'});
+        document.getElementById("infoprofil").style.backgroundColor = this.state.couleur;
+      }
+      else{
+        couleur ='red';
+        this.setState({couleur:'red'});
+        document.getElementById("infoprofil").style.backgroundColor = this.state.couleur;
+      }
+     
+      
+     
+    }
   
     render() {
       return (
         
          
            <div id="infoprofil">
+
              <h1>Profil</h1>
             <div id="photo">
             <img src={profils[this.props.id].Photo}></img>
@@ -108,7 +132,9 @@ class Comptes extends React.Component{
             <div>
               <h4>Bio: {profils[this.props.id].Bio}</h4>
             </div>
-            
+            <button className="style" onClick={()=>this.switchcolor()}> Style
+         </button>
+         
 
            </div>
            
@@ -119,24 +145,6 @@ class Comptes extends React.Component{
   }
 
    
-  class Style extends React.Component{
-    constructor(props) {
-      super(props);
-      this.state = {
-        couleur :null
-      }
-    }
-    switchcolor(){
-      this.setState({couleur : "red"});
-    }
-    render(){
-      return(
-        <button className="style" onClick={()=>alert(couleur)}> Style
-         </button>
-         
-      )
-    }
-  }
   
 
   
